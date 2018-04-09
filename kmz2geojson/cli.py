@@ -1,6 +1,6 @@
 import click
 
-import kmzmunger.main as m
+import kmz2geojson.main as m
 import kml2geojson as k2g
 
 
