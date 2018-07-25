@@ -19,6 +19,7 @@ setup(
     install_requires=[
         'click>=6.6',
         'kml2geojson>=4.0.2',
+        'pathlib',
     ],
     entry_points = {
         'console_scripts': ['kmz2g=kmz2geojson.cli:kmz2g'],
