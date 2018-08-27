@@ -55,8 +55,8 @@ def kmz_convert(kmz_path, output_dir, separate_folders=False,
                 
                 feature['properties']['date'] = tree.xpath('//table/tr[3]/td/text()')[0].strip()
                 feature['properties']['location'] = tree.xpath('//table/tr[5]/td/b/text()')[0].strip()
-                feature['properties']['pressure'] = tree.xpath('//table/tr[7]/td/text()')[0].strip().split(" ")[0]
-                feature['properties']['speed'] = tree.xpath('//table/tr[9]/td/text()')[0].strip().split(";")[2].strip().replace(" kph", "")
+                feature['properties']['pressure'] = float(tree.xpath('//table/tr[7]/td/text()')[0].strip().split(" ")[0])
+                feature['properties']['speed'] = float(tree.xpath('//table/tr[9]/td/text()')[0].strip().split(";")[2].strip().replace(" kph", ""))
 
                 del feature['properties']['name']
                 del feature['properties']['styleUrl']
