@@ -4,6 +4,7 @@ import xml.dom.minidom as md
 import re
 from pathlib import Path, PurePath
 import json
+from lxml import html
 
 from kml2geojson import build_layers, build_feature_collection, disambiguate, to_filename, STYLE_TYPES
 from zipfile import ZipFile
@@ -45,6 +46,21 @@ def kmz_convert(kmz_path, output_dir, separate_folders=False,
         layers = build_layers(root)
     else:
         layers = [build_feature_collection(root, name=kmz_path.stem)]
+
+    # Handle HTML Description Tables
+    for layer in layers:
+        for feature in layer['features']:
+            if "<table>" in feature['properties']['description']:
+                tree = html.fromstring(feature['properties']['description'])
+                
+                feature['properties']['date'] = tree.xpath('//table/tr[3]/td/text()')[0].strip()
+                feature['properties']['location'] = tree.xpath('//table/tr[5]/td/b/text()')[0].strip()
+                feature['properties']['pressure'] = tree.xpath('//table/tr[7]/td/text()')[0].strip().split(" ")[0]
+                feature['properties']['speed'] = tree.xpath('//table/tr[9]/td/text()')[0].strip().split(";")[2].strip().replace(" kph", "")
+
+                del feature['properties']['name']
+                del feature['properties']['styleUrl']
+                del feature['properties']['description']
 
     # Create filenames for layers
     filenames = disambiguate(

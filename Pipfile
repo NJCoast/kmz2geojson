@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 "kml2geojson" = "*"
 click = "*"
+lxml = "*"
 
 [dev-packages]
 
