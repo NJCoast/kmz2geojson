@@ -20,6 +20,7 @@ setup(
         'click>=6.6',
         'kml2geojson>=4.0.2',
         'pathlib',
+        'lxml'
     ],
     entry_points = {
         'console_scripts': ['kmz2g=kmz2geojson.cli:kmz2g'],
