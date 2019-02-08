@@ -33,3 +33,7 @@ $ pipenv install --dev
 ```
 
 The library consists of only 2 files. A command line argument processor using the python [click](https://click.palletsprojects.com) library contained in kmz2geojson/cli.py. Core kmz processing code is in kmz2geojson/main.py.
+
+## Limitations
+
+The tool heavily utilizes the kml2geojson library which has been archived to the NJcoast github repository to ensure future availability.
