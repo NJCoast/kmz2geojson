@@ -1,6 +1,6 @@
 # Command line tool to convert KMZ to GeoJSON for NJcoast
 
-This tool is used to convert [National Huricaine Center GIS](https://www.nhc.noaa.gov/gis/) forecast KMZ format forcast trajectories to the web standard [GeoJSON](http://geojson.org/) for input into NJcoast computational models. The tool depends on the existing [kml2geojson](https://pypi.org/project/kml2geojson/) library, but adds support for decompressing the [kmz](https://developers.google.com/kml/documentation/kmzarchives) to extract the kml files for processing by the kml2geojson library.
+This tool is used to convert [National Huricane Center GIS](https://www.nhc.noaa.gov/gis/) forecast KMZ format forcast trajectories to the web standard [GeoJSON](http://geojson.org/) for input into NJcoast computational models. The tool depends on the existing [kml2geojson](https://pypi.org/project/kml2geojson/) library, but adds support for decompressing the [kmz](https://developers.google.com/kml/documentation/kmzarchives) to extract the kml files for processing by the kml2geojson library.
 
 ## Installation
 
